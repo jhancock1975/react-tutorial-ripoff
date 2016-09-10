@@ -4,6 +4,9 @@ path=require('path');
 app.get('/', function(req, res){
   res.sendfile(path.join(__dirname, '/public/index.html'));
 });
+
+app.use('/scripts', express.static(__dirname + '/node_modules/'));
+
 app.use('/', express.static(__dirname + '/public'));
 
 console.log('__dirname = ', __dirname);
