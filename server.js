@@ -2,7 +2,7 @@ var express = require("express");
 app = express();
 path=require('path');
 app.get('/', function(req, res){
-  res.sendfile(path.join(__dirname, '/public/index.html'));
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
@@ -13,7 +13,7 @@ console.log('__dirname = ', __dirname);
 /* serves all the static files */
 app.get(/^(.+)$/, function(req, res){
  console.log('static file request : ' + req.params);
-   res.sendfile( __dirname + req.params[0]);
+   res.sendFile( __dirname + req.params[0]);
 });
 //test
 var port = process.env.PORT || 5000;
