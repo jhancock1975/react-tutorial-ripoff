@@ -1,6 +1,12 @@
 var express = require("express");
-app = express();
-path=require('path');
+var app = express();
+var path=require('path');
+var router = express.Router();
+router.get('/comments', function(req, res){
+  res.sendFile(path.join(__dirname, '/comments.json'));
+});
+app.use('/api', router);
+
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
